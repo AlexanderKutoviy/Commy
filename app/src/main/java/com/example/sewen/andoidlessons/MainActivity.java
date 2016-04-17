@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.sewen.andoidlessons.gen.BuildPath;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -36,7 +38,7 @@ public class MainActivity extends Activity {
         View.OnClickListener oclBtnOk = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent transactionsServiceIntent = new Intent(this, BuildPath.class);
+                Intent transactionsServiceIntent = new Intent(getApplicationContext(), BuildPath.class);
                 startService(transactionsServiceIntent);
             }
         };
