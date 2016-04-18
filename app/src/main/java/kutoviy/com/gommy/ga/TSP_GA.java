@@ -2,6 +2,9 @@ package kutoviy.com.gommy.ga;
 
 import android.app.IntentService;
 import android.content.Intent;
+import android.graphics.PointF;
+
+import java.util.ArrayList;
 
 /**
  * Created by admin on 4/18/2016.
@@ -15,6 +18,8 @@ public class TSP_GA extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         // Create and add our cities
+        ArrayList<PointF> listOfDots = intent.getParcelableArrayListExtra("list");
+
         City city = new City(60, 200);
         TourManager.addCity(city);
         City city2 = new City(180, 200);
