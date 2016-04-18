@@ -11,9 +11,9 @@ public class City {
     }
 
     // Constructs a city at chosen x, y location
-    public City(int x, int y){
-        this.x = x;
-        this.y = y;
+    public City(float x, float y){
+        this.x = Math.round(x);
+        this.y = Math.round(y);
     }
 
     // Gets city's x coordinate

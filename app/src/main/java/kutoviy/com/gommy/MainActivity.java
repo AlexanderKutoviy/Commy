@@ -1,6 +1,5 @@
 package kutoviy.com.gommy;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Canvas;
@@ -8,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PointF;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -18,12 +18,12 @@ import java.util.ArrayList;
 
 import kutoviy.com.gommy.ga.TSP_GA;
 
-public class MainActivity extends Activity {
-
-    public final MyView mw = new MyView(this);
+public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        final MyView mw = new MyView(this);
+
         super.onCreate(savedInstanceState);
         LinearLayout linLayout = new LinearLayout(this);
         linLayout.setOrientation(LinearLayout.VERTICAL);
@@ -32,6 +32,7 @@ public class MainActivity extends Activity {
         linLayout.addView(tv);
         Button btnBuild = new Button(this);
         btnBuild.setText("Button");
+
         linLayout.addView(btnBuild);
         linLayout.addView(mw);
         setContentView(linLayout);
@@ -42,6 +43,7 @@ public class MainActivity extends Activity {
                 startService(new Intent(getApplicationContext(), TSP_GA.class).putExtra("points", mw.listOfDots));
             }
         };
+        btnBuild.setOnClickListener(oclBtnOk);
 
     }
 
